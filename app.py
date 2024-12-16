@@ -14,11 +14,11 @@ import re
 app = Flask(__name__)
 
 # 必須放上自己的Channel Access Token
-line_bot_api = LineBotApi('cAotsZRc95h5IyQ4rNARm6uLKeuQMbxSr4Db80COuW8XQRUZozunXkisl2zpkYnUxmDhMX8yNwSXinTGJFZKkqcfPhjnoLVXZnGlAgpWyY9iYLtaKSbPI6NgOLL+B4q61peSVuEzMKTK3pPLLtGEigdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('kU4ar4S8kbgto4jk3y0N57JPsB5pRxWvI4yNkj31m1uqZaFtIvJnptg7J48moDnXB90oGVcNLO1nwiFwAQx+klALKYS6ACnWsdF8qYQe+4Ae+4gOlTrE7ww/M88SECkzylc7Cl6xTyijyFcvQdqrwgdB04t89/1O/w1cDnyilFU=')
 # 必須放上自己的Channel Secret
-handler = WebhookHandler('d54bba779290dff794c281594d11c051')
+handler = WebhookHandler('9c842edd49ecf2de4d59f754e476a760')
 
-line_bot_api.push_message('U262565b00a73c456ebba11b0bd1e7762', TextSendMessage(text='你可以開始了'))
+line_bot_api.push_message('U543945277c78ffc1f634f3b96cb60f17', TextSendMessage(text='你可以開始了'))
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -43,25 +43,41 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if re.match('告訴我秘密',message):
+    if re.match('推薦餐廳',message):
         image_carousel_template_message = TemplateSendMessage(
             alt_text='這是TemplateSendMessage',
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
-                        image_url='https://i.imgur.com/kNBl363.jpg',
+                        image_url='https://imgur.com/cJ7xDKq',
                         action=PostbackAction(
-                            label='台灣',
-                            display_text='台北101、逢甲夜市、墾丁...',
+                            label='日式料理',
+                            display_text='https://www.google.com/search?q=%E6%97%A5%E5%BC%8F%E6%96%99%E7%90%86&oq=%E6%97%A5%E5%BC%8F%E6%96%99%E7%90%86&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIGCAcQRRg80gEIMTU2NGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8',
                             data='action=001'
                         )
                     ),
                     ImageCarouselColumn(
-                        image_url='https://i.imgur.com/GBPcUEP.png',
+                        image_url='https://imgur.com/dhzPsMT',
                         action=PostbackAction(
-                            label='日本',
-                            display_text='金閣寺、淺草寺、北海道...',
+                            label='西式料理',
+                            display_text='https://www.google.com/search?q=%E8%A5%BF%E5%BC%8F%E6%96%99%E7%90%86&sca_esv=f73d2c36e6ea8307&sxsrf=ADLYWILKv-VJzqm4kpk16sEaRkvelXDyng%3A1734353605531&ei=xSJgZ6uTIP7i1e8PlIn-8A4&ved=0ahUKEwjricrUqqyKAxV-cfUHHZSEH-4Q4dUDCBA&uact=5&oq=%E8%A5%BF%E5%BC%8F%E6%96%99%E7%90%86&gs_lp=Egxnd3Mtd2l6LXNlcnAiDOilv-W8j-aWmeeQhjIKEAAYgAQYQxiKBTIFEAAYgAQyChAAGIAEGEMYigUyBRAAGIAEMgoQABiABBhDGIoFMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIIEAAYgAQYogRIy1NQAFjSTXABeAGQAQKYAVugAZcKqgECMja4AQPIAQD4AQL4AQGYAgKgAlGoAhTCAgcQLhgnGOoCwgIHECMYJxjqAsICFBAAGIAEGOMEGLQCGOkEGOoC2AEBmAMJ8QUhJW-_HEsg4boGBggBEAEYAZIHATKgB4tX&sclient=gws-wiz-serp',
                             data='action=002'
+                        )
+                    ),
+                     ImageCarouselColumn(
+                        image_url='https://imgur.com/X1EdkKp',
+                        action=PostbackAction(
+                            label='中式料理',
+                            display_text='https://www.google.com/search?q=%E4%B8%AD%E5%BC%8F%E6%96%99%E7%90%86&oq=%E4%B8%AD%E5%BC%8F%E6%96%99%E7%90%86&gs_lcrp=EgZjaHJvbWUyDggAEEUYORhDGIAEGIoFMgwIARAAGEMYgAQYigUyDAgCEAAYQxiABBiKBTIHCAMQABiABDIMCAQQABhDGIAEGIoFMgwIBRAAGEMYgAQYigUyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgAQyDAgJEAAYQxiABBiKBdIBCDEwNjhqMGo5qAIAsAIA&sourceid=chrome&ie=UTF-8',
+                            data='action=003'
+                        )
+                    ),
+                     ImageCarouselColumn(
+                        image_url='https://imgur.com/G3DGczB',
+                        action=PostbackAction(
+                            label='法式料理',
+                            display_text='https://www.google.com/search?q=%E6%B3%95%E5%BC%8F%E6%96%99%E7%90%86&oq=%E6%B3%95%E5%BC%8F%E6%96%99%E7%90%86&gs_lcrp=EgZjaHJvbWUyDggAEEUYORhDGIAEGIoFMgwIARAAGEMYgAQYigUyDAgCEAAYQxiABBiKBTIMCAMQABhDGIAEGIoFMgcIBBAAGIAEMgcIBRAuGIAEMgcIBhAAGIAEMgYIBxBFGDzSAQc2ODhqMGo5qAIAsAIA&sourceid=chrome&ie=UTF-8',
+                            data='action=004'
                         )
                     )
                 ]
