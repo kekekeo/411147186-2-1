@@ -38,55 +38,56 @@ def callback():
 
     return 'OK'
 
-#訊息傳遞區塊
-##### 基本上程式編輯都在這個function #####
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = text=event.message.text
-    if re.match('推薦餐廳',message):
+    message = event.message.text  # 正確提取用戶訊息文字
+    
+    # 處理推薦餐廳的邏輯
+    if message and re.match('推薦餐廳', message):
         image_carousel_template_message = TemplateSendMessage(
-            alt_text='這是TemplateSendMessage',
+            alt_text='推薦餐廳',  # 替代文字，當用戶無法顯示圖片時會顯示此訊息
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
-                        image_url='https://imgur.com/cJ7xDKq',
+                        image_url='https://i.imgur.com/cJ7xDKq.jpg',  # 正確的圖片 URL
                         action=PostbackAction(
                             label='日式料理',
-                            display_text='https://www.google.com/search?q=%E6%97%A5%E5%BC%8F%E6%96%99%E7%90%86&oq=%E6%97%A5%E5%BC%8F%E6%96%99%E7%90%86&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIGCAcQRRg80gEIMTU2NGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8',
+                            display_text='日式料理',
                             data='action=001'
                         )
                     ),
                     ImageCarouselColumn(
-                        image_url='https://imgur.com/dhzPsMT',
+                        image_url='https://i.imgur.com/dhzPsMT.jpg',  # 正確的圖片 URL
                         action=PostbackAction(
                             label='西式料理',
-                            display_text='https://www.google.com/search?q=%E8%A5%BF%E5%BC%8F%E6%96%99%E7%90%86&sca_esv=f73d2c36e6ea8307&sxsrf=ADLYWILKv-VJzqm4kpk16sEaRkvelXDyng%3A1734353605531&ei=xSJgZ6uTIP7i1e8PlIn-8A4&ved=0ahUKEwjricrUqqyKAxV-cfUHHZSEH-4Q4dUDCBA&uact=5&oq=%E8%A5%BF%E5%BC%8F%E6%96%99%E7%90%86&gs_lp=Egxnd3Mtd2l6LXNlcnAiDOilv-W8j-aWmeeQhjIKEAAYgAQYQxiKBTIFEAAYgAQyChAAGIAEGEMYigUyBRAAGIAEMgoQABiABBhDGIoFMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIIEAAYgAQYogRIy1NQAFjSTXABeAGQAQKYAVugAZcKqgECMja4AQPIAQD4AQL4AQGYAgKgAlGoAhTCAgcQLhgnGOoCwgIHECMYJxjqAsICFBAAGIAEGOMEGLQCGOkEGOoC2AEBmAMJ8QUhJW-_HEsg4boGBggBEAEYAZIHATKgB4tX&sclient=gws-wiz-serp',
+                            display_text='西式料理',
                             data='action=002'
                         )
                     ),
-                     ImageCarouselColumn(
-                        image_url='https://imgur.com/X1EdkKp',
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/X1EdkKp.jpg',  # 正確的圖片 URL
                         action=PostbackAction(
                             label='中式料理',
-                            display_text='https://www.google.com/search?q=%E4%B8%AD%E5%BC%8F%E6%96%99%E7%90%86&oq=%E4%B8%AD%E5%BC%8F%E6%96%99%E7%90%86&gs_lcrp=EgZjaHJvbWUyDggAEEUYORhDGIAEGIoFMgwIARAAGEMYgAQYigUyDAgCEAAYQxiABBiKBTIHCAMQABiABDIMCAQQABhDGIAEGIoFMgwIBRAAGEMYgAQYigUyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgAQyDAgJEAAYQxiABBiKBdIBCDEwNjhqMGo5qAIAsAIA&sourceid=chrome&ie=UTF-8',
+                            display_text='中式料理',
                             data='action=003'
                         )
                     ),
-                     ImageCarouselColumn(
-                        image_url='https://imgur.com/G3DGczB',
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/G3DGczB.jpg',  # 正確的圖片 URL
                         action=PostbackAction(
                             label='法式料理',
-                            display_text='https://www.google.com/search?q=%E6%B3%95%E5%BC%8F%E6%96%99%E7%90%86&oq=%E6%B3%95%E5%BC%8F%E6%96%99%E7%90%86&gs_lcrp=EgZjaHJvbWUyDggAEEUYORhDGIAEGIoFMgwIARAAGEMYgAQYigUyDAgCEAAYQxiABBiKBTIMCAMQABhDGIAEGIoFMgcIBBAAGIAEMgcIBRAuGIAEMgcIBhAAGIAEMgYIBxBFGDzSAQc2ODhqMGo5qAIAsAIA&sourceid=chrome&ie=UTF-8',
+                            display_text='法式料理',
                             data='action=004'
                         )
                     )
                 ]
             )
         )
+        # 回應圖片輪播訊息
         line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
     else:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
-#主程式
+        # 回應其他未知指令
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='無法識別的指令'))
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
