@@ -44,7 +44,7 @@ def handle_message(event):
 
     if message == "推薦餐廳":
         imagemap_message = ImagemapSendMessage(
-            base_url='https://i.imgur.com/your_image_id',  # 請替換為您的圖片 URL
+            base_url='https://imgur.com/a/8VisrzK',  # 請替換為您的圖片 URL
             alt_text='推薦餐廳',
             base_size=BaseSize(height=1040, width=1040),
             actions=[
