@@ -52,7 +52,7 @@ def handle_message(event):
                         image_url='https://i.imgur.com/cJ7xDKq.jpg',  # 正確的圖片 URL
                         action=PostbackAction(
                             label='日式料理',
-                            display_text='日式料理',
+                            display_text='https://www.google.com/search?q=%E6%97%A5%E5%BC%8F%E6%96%99%E7%90%86&oq=%E6%97%A5%E5%BC%8F%E6%96%99%E7%90%86&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIGCAcQRRg80gEIMTEzOGowajeoAgiwAgE&sourceid=chrome&ie=UTF-8',
                             data='action=001'
                         )
                     ),
@@ -60,7 +60,7 @@ def handle_message(event):
                         image_url='https://i.imgur.com/dhzPsMT.jpg',  # 正確的圖片 URL
                         action=PostbackAction(
                             label='西式料理',
-                            display_text='西式料理',
+                            display_text='https://www.google.com/search?q=%E8%A5%BF%E5%BC%8F%E6%96%99%E7%90%86&oq=%E8%A5%BF%E5%BC%8F%E6%96%99%E7%90%86&gs_lcrp=EgZjaHJvbWUyDggAEEUYJxg5GIAEGIoFMgcIARAAGIAEMgcIAhAAGIAEMgcIAxAAGIAEMgwIBBAAGEMYgAQYigUyBwgFEAAYgAQyDAgGEAAYQxiABBiKBTIGCAcQRRg90gEIMTAxN2owajmoAgCwAgA&sourceid=chrome&ie=UTF-8',
                             data='action=002'
                         )
                     ),
@@ -68,7 +68,7 @@ def handle_message(event):
                         image_url='https://i.imgur.com/X1EdkKp.jpg',  # 正確的圖片 URL
                         action=PostbackAction(
                             label='中式料理',
-                            display_text='中式料理',
+                            display_text='https://www.google.com/search?q=%E4%B8%AD%E5%BC%8F%E6%96%99%E7%90%86&oq=%E4%B8%AD%E5%BC%8F%E6%96%99%E7%90%86&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIMCAEQABhDGIAEGIoFMgwIAhAAGEMYgAQYigUyBwgDEAAYgAQyDAgEEAAYQxiABBiKBTIMCAUQABhDGIAEGIoFMgcIBhAAGIAEMgcIBxAAGIAEMgcICBAAGIAEMgwICRAAGEMYgAQYigXSAQc2NjVqMGo5qAIAsAIA&sourceid=chrome&ie=UTF-8',
                             data='action=003'
                         )
                     ),
@@ -76,7 +76,7 @@ def handle_message(event):
                         image_url='https://i.imgur.com/G3DGczB.jpg',  # 正確的圖片 URL
                         action=PostbackAction(
                             label='法式料理',
-                            display_text='法式料理',
+                            display_text='https://www.google.com/search?q=%E6%B3%95%E5%BC%8F%E6%96%99%E7%90%86&oq=%E6%B3%95%E5%BC%8F%E6%96%99%E7%90%86&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIMCAEQABhDGIAEGIoFMgwIAhAAGEMYgAQYigUyDAgDEAAYQxiABBiKBTIHCAQQABiABDIHCAUQLhiABDIHCAYQABiABDIGCAcQRRg80gEHNzU1ajBqOagCALACAA&sourceid=chrome&ie=UTF-8',
                             data='action=004'
                         )
                     )
